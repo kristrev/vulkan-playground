@@ -8,6 +8,7 @@ include(CTest)
 enable_testing()
 
 add_executable(vulkan_test main.cpp)
+add_executable(vulkan_test2 vulkan_test_2.cpp)
 
 include_directories(
     /opt/homebrew/Cellar/glfw/3.3.9/include
@@ -20,8 +21,10 @@ include_directories(
 find_library(GLFW_LIB glfw PATHS /opt/homebrew/Cellar/glfw/3.3.9/lib)
 find_library(VULKAN_LIB vulkan PATHS /Users/kristrev/VulkanSDK/1.3.268.1/macOS/lib)
 
-target_link_libraries(vulkan_test ${GLFW_LIB})
-target_link_libraries(vulkan_test ${VULKAN_LIB})
+set(VULKAN_LIBS ${GLFW_LIB} ${VULKAN_LIB})
+
+target_link_libraries(vulkan_test ${VULKAN_LIBS})
+target_link_libraries(vulkan_test2 ${VULKAN_LIBS})
 
 set(ENV{VK_ICD_FILENAMES} /Users/kristrev/VulkanSDK/1.3.268.1/macOS/share/vulkan/icd.d/MoltenVK_icd.json)
 set(ENV{VK_LAYER_PATH} /Users/kristrev/VulkanSDK/1.3.268.1/macOS/share/vulkan/explicit_layer.d)
