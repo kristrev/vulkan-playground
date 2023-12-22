@@ -7,7 +7,20 @@
 #include <glm/mat4x4.hpp>
 
 #include <iostream>
+#include <stdexcept>
+#include <cstdlib>
+
+#include "hello_triangle.hpp"
 
 int main() {
-    return 0;
+    HelloTriangle ht;
+
+    try {
+        ht.run();
+    } catch (const std::exception& e) {
+        std::cerr << "HelloTriangle failed. Reason:\n\t" << e.what() << std::endl;
+        return EXIT_FAILURE;
+    }
+
+    return EXIT_SUCCESS;
 }
