@@ -8,7 +8,7 @@ include(CTest)
 enable_testing()
 
 add_executable(vulkan_test main.cpp)
-add_executable(vulkan_test2 vulkan_test_2.cpp)
+add_executable(vulkan_test2 vulkan_test_2.cpp hello_triangle.cpp)
 
 include_directories(
     /opt/homebrew/Cellar/glfw/3.3.9/include
